@@ -171,8 +171,28 @@ CONFIG_PACKAGE_libzstd=y
 CONFIG_PACKAGE_losetup=y
 CONFIG_PACKAGE_lsattr=y
 CONFIG_PACKAGE_lsblk=y
+###开启turboacc
+#CONFIG_DEFAULT_luci-app-turboacc=y
+CONFIG_PACKAGE_luci-app-turboacc=y
+CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_OFFLOADING=y
+CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
+CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD=y
+###开启upnp
+#CONFIG_DEFAULT_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-upnp=y
+###开启vlmcsd=KMS服务
+#CONFIG_DEFAULT_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-app-vlmcsd=y
+###开启homeproxy
+CONFIG_PACKAGE_luci-app-homeproxy=y
+###开启DDNS-GO
+CONFIG_PACKAGE_luci-app-ddns-go=y
+###开启mosdns
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-docker=y
+CONFIG_PACKAGE_luci-app-dockerman=y
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
-CONFIG_PACKAGE_luci-app-adguardhome=y
+#CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-app-amlogic=y
 # CONFIG_PACKAGE_luci-app-arpbind is not set
 # CONFIG_PACKAGE_luci-app-ddns is not set
