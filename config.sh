@@ -184,7 +184,7 @@ CONFIG_PACKAGE_luci-app-upnp=y
 #CONFIG_DEFAULT_luci-app-vlmcsd=y
 CONFIG_PACKAGE_luci-app-vlmcsd=y
 ###开启homeproxy
-CONFIG_PACKAGE_luci-app-homeproxy=y
+#CONFIG_PACKAGE_luci-app-homeproxy=y
 ###开启DDNS-GO
 CONFIG_PACKAGE_luci-app-ddns-go=y
 ###开启mosdns
