@@ -15,9 +15,9 @@ rm -rf theme-temp
 default_theme='opentomcat'
 sed -i "s/bootstrap/$default_theme/g" feeds/luci/modules/luci-base/root/etc/config/luci
 ### 添加第三方订阅源
-#sed -i '$a src-git kiddin9_openwrt_packages https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
-sed -i '$a src-git kenzok8_openwrt_packages https://github.com/kenzok8/openwrt-packages.git' feeds.conf.default
-sed -i '$a src-git kenzok8_small_package https://github.com/kenzok8/small-package.git' feeds.conf.default
+sed -i '$a src-git kiddin9_openwrt_packages https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
+#sed -i '$a src-git kenzok8_openwrt_packages https://github.com/kenzok8/openwrt-packages.git' feeds.conf.default
+#sed -i '$a src-git kenzok8_small_package https://github.com/kenzok8/small-package.git' feeds.conf.default
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git  package-temp/luci-app-amlogic
