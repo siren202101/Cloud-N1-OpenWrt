@@ -186,11 +186,11 @@ CONFIG_PACKAGE_luci-app-vlmcsd=y
 ###开启homeproxy
 #CONFIG_PACKAGE_luci-app-homeproxy=y
 ###开启DDNS
-CONFIG_PACKAGE_luci-app-ddns=y
+#CONFIG_PACKAGE_luci-app-ddns=y
 ###开启mosdns
-CONFIG_PACKAGE_luci-app-mosdns=y
+#CONFIG_PACKAGE_luci-app-mosdns=y
 ###开启ssr-plus
-CONFIG_PACKAGE_luci-app-ssr-plus=y
+#CONFIG_PACKAGE_luci-app-ssr-plus=y
 ###开启passwall
 CONFIG_PACKAGE_luci-app-passwall=y
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
