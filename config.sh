@@ -191,8 +191,8 @@ CONFIG_PACKAGE_luci-app-vlmcsd=y
 #CONFIG_PACKAGE_luci-app-mosdns=y
 ###开启ssr-plus
 #CONFIG_PACKAGE_luci-app-ssr-plus=y
-###开启passwall
-CONFIG_PACKAGE_luci-app-passwall=y
+###开启passwall2
+CONFIG_PACKAGE_luci-app-passwall2=y
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
 #CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-app-amlogic=y
