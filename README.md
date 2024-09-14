@@ -1,4 +1,4 @@
-# 云编译 N1 OpenWrt 固件
+# 云编译 N1 OpenWrt 固件 使用LEDE:20220401版本
 
 **说明**：
 - 本项目使用 Github Actions 下载 [Lean](https://github.com/coolsnowwolf/lede) 的 `Openwrt` 源码仓库，进行云编译。
