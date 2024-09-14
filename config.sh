@@ -186,7 +186,7 @@ CONFIG_PACKAGE_luci-app-vlmcsd=y
 ###开启homeproxy
 #CONFIG_PACKAGE_luci-app-homeproxy=y
 ###开启DDNS
-#CONFIG_PACKAGE_luci-app-ddns-go=y
+CONFIG_PACKAGE_luci-app-ddns-go=y
 ###开启mosdns
 CONFIG_PACKAGE_luci-app-mosdns=y
 ###开启ssr-plus
