@@ -195,6 +195,8 @@ CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-app-passwall=y
 ###开启Socat
 CONFIG_PACKAGE_luci-app-socat=y
+###开启
+CONFIG_PACKAGE_openssh-sftp-server=y
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
 #CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-app-amlogic=y
