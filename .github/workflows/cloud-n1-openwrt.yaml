@@ -15,7 +15,8 @@ on:
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  #REPO_BRANCH: master
+  REPO_BRANCH: 20220401
   SCRIPT_SH: script.sh
   CONFIG_SH: config.sh
   UPLOAD_FIRMWARE: true
