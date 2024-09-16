@@ -6,10 +6,9 @@ on:
   push:
     branches:
       - main
-    #paths:
-      #- 'README.md'
-      #- 'script.sh'
-      #- 'config.sh'
+    paths:
+      - 'script.sh'
+      - 'config.sh'
   schedule:
     - cron: 0 8 * * 0
 
