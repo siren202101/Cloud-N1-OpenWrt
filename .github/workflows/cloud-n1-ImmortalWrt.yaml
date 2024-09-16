@@ -7,9 +7,8 @@ on:
     branches:
       - main
     paths:
-      #- 'README.md'
-      #- 'script.sh'
-      #- 'config.sh'
+      - 'script.sh'
+      - 'config.sh'
   schedule:
     - cron: 0 8 * * 0
 
@@ -17,7 +16,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-23.05
   SCRIPT_SH: script.sh
-  CONFIG_SH: ImmortalWrt.config
+  CONFIG_FILE: ImmortalWrt.config
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
   KERNEL_VERSION: 6.1.79
@@ -92,8 +91,8 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        chmod +x $CONFIG_SH
-        ./$CONFIG_SH
+        #chmod +x $CONFIG_SH
+        #./$CONFIG_SH
 
     - name: Download package
       run: |
