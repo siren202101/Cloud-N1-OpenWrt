@@ -146,7 +146,7 @@ jobs:
     - name: Create release
       uses: ncipollo/release-action@v1
       with:
-        name: ${{ env.DATE }} ❤️ | N1-OpenWrt 自动编译打包
+        name: ${{ env.DATE }} ❤️ | N1- ImmortalWrt  自动编译打包
         allowUpdates: true
         tag: ${{ env.tag_name }}
         commit: main
