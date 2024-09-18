@@ -188,11 +188,11 @@ CONFIG_PACKAGE_luci-app-vlmcsd=y
 ###开启DDNS
 CONFIG_PACKAGE_luci-app-ddns-go=y
 ###开启mosdns
-CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-mosdns=n
 ###开启ssr-plus
-#CONFIG_PACKAGE_luci-app-ssr-plus=y
+#CONFIG_PACKAGE_luci-app-ssr-plus=n
 ###开启passwall
-CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-app-passwall=n
 ###开启Socat
 CONFIG_PACKAGE_luci-app-socat=y
 ###开启
