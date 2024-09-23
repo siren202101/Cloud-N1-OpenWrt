@@ -190,7 +190,7 @@ CONFIG_PACKAGE_luci-app-ddns-go=y
 ###开启mosdns
 CONFIG_PACKAGE_luci-app-mosdns=n
 ###开启ssr-plus
-#CONFIG_PACKAGE_luci-app-ssr-plus=n
+CONFIG_PACKAGE_luci-app-ssr-plus=n
 ###开启passwall
 CONFIG_PACKAGE_luci-app-passwall=n
 ###开启Socat
