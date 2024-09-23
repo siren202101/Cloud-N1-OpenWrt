@@ -20,7 +20,7 @@ sed -i '$a src-git kenzok8_openwrt_packages https://github.com/kenzok8/openwrt-p
 sed -i '$a src-git kenzok8_small_package https://github.com/kenzok8/small-package.git' feeds.conf.default
 
 ###修改IP###
-sed -i 's/192.168.1.1/192.168.2.251/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.251/g' package/base-files/files/bin/config_generate
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git  package-temp/luci-app-amlogic
