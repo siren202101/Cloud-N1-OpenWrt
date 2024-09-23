@@ -3,12 +3,12 @@ name: Cloud N1 ImmortalWrt
 on:
   repository_dispatch:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'script.sh'
-      - 'config.sh'
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'script.sh'
+#      - 'config.sh'
   schedule:
     - cron: 0 8 * * 0
 
