@@ -200,7 +200,9 @@ CONFIG_PACKAGE_luci-app-socat=y
 ###开启
 CONFIG_PACKAGE_openssh-sftp-server=y
 ###开启OpenClash
-#CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-openclash=y
+###开启SmartDNS
+CONFIG_PACKAGE_luci-app-smartdns=y
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
 #CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-app-amlogic=y
