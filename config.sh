@@ -203,6 +203,8 @@ CONFIG_PACKAGE_openssh-sftp-server=y
 CONFIG_PACKAGE_luci-app-openclash=y
 ###开启SmartDNS
 CONFIG_PACKAGE_luci-app-smartdns=y
+###开启Samba4
+CONFIG_PACKAGE_luci-app-samba4=y
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
 #CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-app-amlogic=y
