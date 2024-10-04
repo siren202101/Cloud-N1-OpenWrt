@@ -116,10 +116,9 @@ CONFIG_DEFAULT_luci-app-accesscontrol=y
 CONFIG_DEFAULT_luci-app-arpbind=y
 CONFIG_DEFAULT_luci-app-autoreboot=y
 CONFIG_DEFAULT_luci-app-ddns=y
-CONFIG_DEFAULT_luci-app-socat=y
 CONFIG_DEFAULT_luci-app-filetransfer=y
 CONFIG_DEFAULT_luci-app-nlbwmon=y
-#CONFIG_DEFAULT_luci-app-ssr-plus=y
+CONFIG_DEFAULT_luci-app-ssr-plus=y
 CONFIG_DEFAULT_luci-app-turboacc=y
 CONFIG_DEFAULT_luci-app-upnp=y
 CONFIG_DEFAULT_luci-app-vlmcsd=y
@@ -1848,7 +1847,7 @@ CONFIG_PACKAGE_grub2-efi-arm=y
 # CONFIG_PACKAGE_autoshare-ksmbd is not set
 # CONFIG_PACKAGE_autoshare-samba is not set
 # CONFIG_PACKAGE_cpufreq is not set
-# CONFIG_PACKAGE_ipv6helper is not set
+CONFIG_PACKAGE_ipv6helper=y
 # CONFIG_PACKAGE_jose is not set
 CONFIG_PACKAGE_libiwinfo-data=y
 # CONFIG_PACKAGE_libjose is not set
@@ -2443,7 +2442,7 @@ CONFIG_PACKAGE_kmod-br-netfilter=y
 # CONFIG_PACKAGE_kmod-ebtables-ipv6 is not set
 # CONFIG_PACKAGE_kmod-ebtables-watchers is not set
 CONFIG_PACKAGE_kmod-ip6tables=y
-# CONFIG_PACKAGE_kmod-ip6tables-extra is not set
+CONFIG_PACKAGE_kmod-ip6tables-extra=y
 # CONFIG_PACKAGE_kmod-ipt-account is not set
 # CONFIG_PACKAGE_kmod-ipt-asn is not set
 # CONFIG_PACKAGE_kmod-ipt-chaos is not set
@@ -2687,6 +2686,8 @@ CONFIG_PACKAGE_kmod-inet-diag=y
 # CONFIG_PACKAGE_kmod-ip6-tunnel is not set
 # CONFIG_PACKAGE_kmod-ipip is not set
 # CONFIG_PACKAGE_kmod-ipsec is not set
+CONFIG_PACKAGE_kmod-iptunnel=y
+CONFIG_PACKAGE_kmod-iptunnel4=y
 # CONFIG_PACKAGE_kmod-iptunnel6 is not set
 # CONFIG_PACKAGE_kmod-jool-netfilter is not set
 # CONFIG_PACKAGE_kmod-l2tp is not set
@@ -2741,7 +2742,7 @@ CONFIG_PACKAGE_kmod-pppox=y
 # CONFIG_PACKAGE_kmod-sctp is not set
 # CONFIG_PACKAGE_kmod-shortcut-fe is not set
 # CONFIG_PACKAGE_kmod-shortcut-fe-cm is not set
-# CONFIG_PACKAGE_kmod-sit is not set
+CONFIG_PACKAGE_kmod-sit=y
 CONFIG_PACKAGE_kmod-slhc=y
 # CONFIG_PACKAGE_kmod-slip is not set
 CONFIG_PACKAGE_kmod-tcp-bbr=y
@@ -5075,7 +5076,8 @@ CONFIG_PACKAGE_luci-app-autoreboot=y
 # CONFIG_PACKAGE_luci-app-cshark is not set
 # CONFIG_PACKAGE_luci-app-cupsd is not set
 # CONFIG_PACKAGE_luci-app-dawn is not set
-# CONFIG_PACKAGE_luci-app-ddns is not set
+CONFIG_PACKAGE_luci-app-ddns=y
+CONFIG_PACKAGE_luci-app-socat=y
 # CONFIG_PACKAGE_luci-app-ddns-go is not set
 # CONFIG_PACKAGE_luci-app-ddnsto is not set
 # CONFIG_PACKAGE_luci-app-design-config is not set
@@ -5488,6 +5490,35 @@ CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-base-vi is not set
 CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-base-zh-tw is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-bg is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-ca is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-cs is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-de is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-el is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-en is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-es is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-fr is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-he is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-hi is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-hu is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-it is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-ja is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-ko is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-mr is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-ms is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-no is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-pl is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-pt is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-pt-br is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-ro is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-ru is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-sk is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-sv is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-tr is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-uk is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-vi is not set
+CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
+# CONFIG_PACKAGE_luci-i18n-ddns-zh-tw is not set
 CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-diskman-zh-tw is not set
 CONFIG_PACKAGE_luci-i18n-docker-zh-cn=y
@@ -5804,8 +5835,8 @@ CONFIG_PACKAGE_wget-ssl=y
 # CONFIG_PACKAGE_fwknop is not set
 # CONFIG_PACKAGE_fwknopd is not set
 CONFIG_PACKAGE_ip6tables=y
-# CONFIG_PACKAGE_ip6tables-extra is not set
-# CONFIG_PACKAGE_ip6tables-mod-nat is not set
+CONFIG_PACKAGE_ip6tables-extra=y
+CONFIG_PACKAGE_ip6tables-mod-nat=y
 CONFIG_PACKAGE_iptables=y
 # CONFIG_IPTABLES_CONNLABEL is not set
 # CONFIG_IPTABLES_NFTABLES is not set
@@ -6572,7 +6603,7 @@ CONFIG_PACKAGE_v2ray-plugin=y
 # end of arp-scan
 
 # CONFIG_PACKAGE_464xlat is not set
-# CONFIG_PACKAGE_6in4 is not set
+CONFIG_PACKAGE_6in4=y
 # CONFIG_PACKAGE_6rd is not set
 # CONFIG_PACKAGE_6to4 is not set
 # CONFIG_PACKAGE_HomeRedirect is not set
@@ -7812,6 +7843,7 @@ CONFIG_PACKAGE_tini=y
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
+
 ###添加依赖包####
 ###添加依赖包###
 CONFIG_PACKAGE_perl-http-date=y
