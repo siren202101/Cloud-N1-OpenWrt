@@ -19,7 +19,7 @@ env:
   CONFIG_SH: lede.config.sh
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
-  KERNEL_VERSION: 6.1.y_6.6.y
+  KERNEL_VERSION: 6.1.y_6.12.y
 
 jobs:
   build_openwrt:
