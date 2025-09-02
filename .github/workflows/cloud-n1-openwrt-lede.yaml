@@ -87,9 +87,8 @@ jobs:
     - name: Install feeds
       run: |
         cd openwrt
-        ./scripts/feeds install -a && rm -rf feeds/kenzok8_small_package/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb} && rm ./package/feeds/luci/luci-app-openclash && rm ./package/feeds/luci/luci-app-passwall && rm ./package/feeds/luci/luci-app-smartdns && ln -s ./feeds/kenzok8_small_package/shadowsocks-rust/ ./package/feeds/kenzok8_small_package && ln -s ./feeds/kenzok8_small_package/luci-app-openclash/ ./package/feeds/kenzok8_small_package && ln -s ./feeds/kenzok8_small_package/luci-app-passwall/ ./package/feeds/kenzok8_small_package && ln -s ./feeds/kenzok8_small_package/luci-app-smartdns/ ./package/feeds/kenzok8_small_package && rm ./package/feeds/packages/haproxy && ln -s ./feeds/kenzok8_small_package/haproxy/ ./package/feeds/kenzok8_small_package
-
-
+        ./scripts/feeds install -a 
+        
     - name: Load custom configuration
       run: |
         chmod +x $CONFIG_SH
