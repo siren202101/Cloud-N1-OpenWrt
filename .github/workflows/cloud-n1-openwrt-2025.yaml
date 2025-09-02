@@ -1,6 +1,8 @@
 name: Cloud N1 OpenWrt 2025
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
   push:
     branches:
       - main
