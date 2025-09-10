@@ -8331,4 +8331,4 @@ CONFIG_PACKAGE_luci-app-dockerman=y
 CONFIG_PACKAGE_luci-i18n-docker-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
 CONFIG_PACKAGE_luci-lib-docker=y
-CONFIG_PACKAGE_luci-app-cifsd=y
+CONFIG_PACKAGE_luci-app-samba4=y
