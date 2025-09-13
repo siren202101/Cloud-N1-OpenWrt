@@ -1,4 +1,4 @@
-name: Cloud N1 OpenWrt 2025
+name: X86-LEDE
 
 on:
   repository_dispatch:
