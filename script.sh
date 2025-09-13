@@ -23,7 +23,8 @@ sed -i '1i src-git openwrt_passwall_packages https://github.com/xiaorouji/openwr
 sed -i '1i src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;main' feeds.conf.default
 
 ###修改IP###
-sed -i 's/192.168.1.1/192.168.88.251/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/luci2/bin/config_generate
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git  package-temp/luci-app-amlogic
