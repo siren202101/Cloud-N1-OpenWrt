@@ -211,7 +211,7 @@ jobs:
       uses: softprops/action-gh-release@master
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-        GGITHUB_TOKEN: ${{ secrets.GGITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
@@ -230,4 +230,4 @@ jobs:
         keep_latest: 3
         delete_tags: true
       env:
-        GGITHUB_TOKEN: ${{ secrets.GGITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
