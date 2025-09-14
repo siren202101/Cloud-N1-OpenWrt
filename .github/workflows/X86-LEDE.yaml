@@ -22,7 +22,6 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  KERNEL_VERSION: 6.1.y_6.12.y
 
 jobs:
   build_openwrt:
