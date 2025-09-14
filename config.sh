@@ -309,7 +309,6 @@ CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_CM=y
 #
 CONFIG_PACKAGE_vsftpd-alt=y
 CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
-###添加依赖包####
 ###添加依赖包###
 CONFIG_PACKAGE_perl-http-date=y
 CONFIG_PACKAGE_perlbase-file=y
@@ -346,4 +345,7 @@ CONFIG_PACKAGE_hostapd-common=y
 CONFIG_PACKAGE_wpa-cli=y
 CONFIG_PACKAGE_wpad-basic=y
 CONFIG_PACKAGE_iw=y
+CONFIG_PACKAGE_blkid=y
+CONFIG_PACKAGE_e2fsprogs=y
+CONFIG_PACKAGE_mkf2fs=y
 EOF
