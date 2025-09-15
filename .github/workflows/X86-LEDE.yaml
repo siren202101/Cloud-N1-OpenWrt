@@ -136,10 +136,15 @@ jobs:
         sed -i 's/TARGET_CFLAGS += -DHAVE_MAP_SYNC/TARGET_CFLAGS += -DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/' feeds/packages/utils/xfsprogs/Makefile
         ./scripts/feeds update -a
         rm -rf feeds/kenzok8_small_package/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
-
+        rm -rf package/feeds/luci/luci-app-smartdns
+        rm -rf package/feeds/packages/smartdns
+        rm -rf package/feeds/luci/luci-app-upnp
+        
     - name: Install feeds
       run: |
         cd openwrt
+        ln -s feeds/kenzok8_small_package/luci-app-smartdns/ package/feeds/kenzok8_small_package
+        ln -s feeds/kenzok8_small_package/smartdns/ package/feeds/kenzok8_small_package
         ./scripts/feeds install -a 
         
     - name: Load custom configuration
