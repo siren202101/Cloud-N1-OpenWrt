@@ -227,7 +227,7 @@ CONFIG_TARGET_ROOTFS_SQUASHFS=y
 CONFIG_TARGET_SQUASHFS_BLOCK_SIZE=256
 CONFIG_TARGET_UBIFS_FREE_SPACE_FIXUP=y
 CONFIG_TARGET_UBIFS_JOURNAL_SIZE=""
-# CONFIG_GRUB_IMAGES is not set
+CONFIG_GRUB_IMAGES=y
 CONFIG_GRUB_EFI_IMAGES=y
 CONFIG_GRUB_CONSOLE=y
 CONFIG_GRUB_BAUDRATE=115200
@@ -549,8 +549,10 @@ CONFIG_TARGET_INIT_CMD="/sbin/init"
 CONFIG_TARGET_INIT_SUPPRESS_STDERR=y
 # CONFIG_VERSIONOPT is not set
 CONFIG_PER_FEED_REPO=y
-CONFIG_FEED_kenzok=y
-CONFIG_FEED_small=y
+CONFIG_FEED_OpenClash=y
+CONFIG_FEED_openwrt_passwall_packages=y
+CONFIG_FEED_passwall_luci=y
+CONFIG_FEED_kenzok8_small_package=y
 CONFIG_FEED_packages=y
 CONFIG_FEED_luci=y
 CONFIG_FEED_routing=y
@@ -6490,7 +6492,6 @@ CONFIG_PACKAGE_mosdns=y
 # CONFIG_PACKAGE_unbound-host is not set
 # CONFIG_PACKAGE_v2ray-geoip is not set
 # CONFIG_PACKAGE_v2ray-geosite is not set
-# CONFIG_PACKAGE_v2ray-geosite-ir is not set
 CONFIG_PACKAGE_wsdd2=y
 # CONFIG_PACKAGE_zonestitcher is not set
 # end of IP Addresses and Names
@@ -6950,10 +6951,8 @@ CONFIG_PACKAGE_microsocks=y
 # CONFIG_PACKAGE_redsocks2 is not set
 # CONFIG_PACKAGE_routergo is not set
 # CONFIG_PACKAGE_shadow-tls is not set
-# CONFIG_PACKAGE_shadowsocks-libev-config is not set
 CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
 CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
-# CONFIG_PACKAGE_shadowsocks-libev-ss-rules is not set
 CONFIG_PACKAGE_shadowsocks-libev-ss-server=y
 # CONFIG_PACKAGE_shadowsocks-libev-ss-tunnel is not set
 CONFIG_PACKAGE_shadowsocks-rust-sslocal=y
