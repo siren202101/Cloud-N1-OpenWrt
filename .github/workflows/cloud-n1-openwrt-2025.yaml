@@ -142,8 +142,8 @@ jobs:
     - name: Install feeds
       run: |
         cd openwrt
-        ln -s feeds/small/luci-app-smartdns/ package/feeds/small
-        ln -s feeds/small/smartdns/ package/feeds/small
+        ln -s feeds/kenzok8_small_package/luci-app-smartdns/ package/feeds/kenzok8_small_package
+        ln -s feeds/kenzok8_small_package/smartdns/ package/feeds/kenzok8_small_package
         ./scripts/feeds install -a 
         
     - name: Load custom configuration
