@@ -1,4 +1,4 @@
-name: X86-LEDE
+name: Cloud-X86-LEDE
 
 on:
   repository_dispatch:
