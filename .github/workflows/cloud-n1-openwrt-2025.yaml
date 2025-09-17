@@ -136,16 +136,19 @@ jobs:
         ./scripts/feeds update -a
         rm -rf feeds/kenzok8_small_package/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
         rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
-        rm -rf feeds/luci/luci-app-smartdns
-        rm -rf feeds/packages/smartdns
-        rm -rf feeds/luci/luci-app-upnp
+
 
     - name: Install feeds
       run: |
         cd openwrt
         ./scripts/feeds install -a 
-        ln -s feeds/kenzok8_small_package/luci-app-smartdns/ package/feeds/kenzok8_small_package
-        ln -s feeds/kenzok8_small_package/smartdns/ package/feeds/kenzok8_small_package
+        #rm -rf  feeds/luci/applications/luci-app-smartdns/*
+        #rm -rf  feeds/packages/net/smartdns/*
+        #rm -rf  package/feeds/luci/luci-app-upnp
+        #cp -rf feeds/kenzok8_small_package/luci-app-smartdns/* feeds/luci/applications/luci-app-smartdns
+        #cp -rf feeds/kenzok8_small_package/smartdns/* feeds/packages/net/smartdns
+        #cat feeds/packages/net/smartdns/Makefile
+        #cat feeds/luci/applications/luci-app-smartdns/Makefile
         
     - name: Load custom configuration
       run: |
