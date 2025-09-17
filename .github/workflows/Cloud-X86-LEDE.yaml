@@ -148,8 +148,8 @@ jobs:
         rm -rf  package/feeds/luci/luci-app-upnp
         ln -s feeds/kenzok8_small_package/luci-app-smartdns/ package/feeds/luci
         ln -s feeds/kenzok8_small_package/smartdns/ package/feeds/packages
-        ls -l package/feeds/luci
-        ls -l package/feeds/packages
+        ls -l package/feeds/luci/luci-app-smartdns
+        ls -l package/feeds/packages/smartdns
         
     - name: Load custom configuration
       run: |
