@@ -19,7 +19,7 @@ env:
   SCRIPT_SH: script.sh
   CONFIG_SH: x86.lede.config.sh
   UPLOAD_FIRMWARE: true
-  UPLOAD_BIN_DIR: true
+  UPLOAD_BIN_DIR: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
