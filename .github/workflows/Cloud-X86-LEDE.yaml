@@ -137,9 +137,9 @@ jobs:
         ./scripts/feeds update -a
         rm -rf feeds/kenzok8_small_package/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
         rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
-        rm -rf package/feeds/luci/luci-app-smartdns
-        rm -rf package/feeds/packages/smartdns
-        rm -rf package/feeds/luci/luci-app-upnp
+        rm -rf feeds/luci/luci-app-smartdns
+        rm -rf feeds/packages/smartdns
+        rm -rf feeds/luci/luci-app-upnp
         
     - name: Install feeds
       run: |
