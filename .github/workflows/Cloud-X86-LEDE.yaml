@@ -145,6 +145,8 @@ jobs:
       run: |
         cd openwrt
         ./scripts/feeds install -a 
+        rm -rf feeds/packages/net/smartdns
+        rm -rf feeds/luci/applications/luci-app-smartdns
         ln -s feeds/kenzok8_small_package/luci-app-smartdns/ package/feeds/kenzok8_small_package
         ln -s feeds/kenzok8_small_package/smartdns/ package/feeds/kenzok8_small_package
         
