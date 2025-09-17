@@ -143,13 +143,13 @@ jobs:
       run: |
         cd openwrt
         ./scripts/feeds install -a 
-        rm -rf  package/feeds/luci/luci-app-smartdns
-        rm -rf  package/feeds/packages/smartdns
+        #rm -rf  package/feeds/luci/luci-app-smartdns
+        #rm -rf  package/feeds/packages/smartdns
         rm -rf  package/feeds/luci/luci-app-upnp
-        ln -s feeds/kenzok8_small_package/luci-app-smartdns/ package/feeds/luci
-        ln -s feeds/kenzok8_small_package/smartdns/ package/feeds/packages
-        ls -l package/feeds/luci/luci-app-smartdns
-        ls -l package/feeds/packages/smartdns
+        cp -rf feeds/kenzok8_small_package/luci-app-smartdns/* feeds/luci/applications/luci-app-smartdns
+        cp -rf feeds/kenzok8_small_package/smartdns/* feeds/packages/net/smartdns
+        cat feeds/packages/net/smartdns/Makefile
+        cat feeds/luci/applications/luci-app-smartdns/Makefile
         
     - name: Load custom configuration
       run: |
