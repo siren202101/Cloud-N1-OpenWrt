@@ -80,7 +80,7 @@ CONFIG_DEFAULT_brcmfmac-firmware-43455-sdio-phicomm-n1=y
 CONFIG_DEFAULT_busybox=y
 CONFIG_DEFAULT_ca-bundle=y
 CONFIG_DEFAULT_ca-certificates=y
-CONFIG_DEFAULT_coremark=y
+CONFIG_DEFAULT_coremark=m
 CONFIG_DEFAULT_curl=y
 CONFIG_DEFAULT_ddns-scripts_aliyun=y
 CONFIG_DEFAULT_ddns-scripts_dnspod=y
@@ -7912,7 +7912,7 @@ CONFIG_PACKAGE_cgroupfs-mount=y
 # CONFIG_PACKAGE_collectd is not set
 # CONFIG_PACKAGE_conmon is not set
 CONFIG_PACKAGE_containerd=y
-CONFIG_PACKAGE_coremark=y
+CONFIG_PACKAGE_coremark=m
 CONFIG_COREMARK_OPTIMIZE_O3=y
 # CONFIG_COREMARK_ENABLE_MULTITHREADING is not set
 CONFIG_PACKAGE_coreutils=y
