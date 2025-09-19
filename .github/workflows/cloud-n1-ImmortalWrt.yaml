@@ -16,7 +16,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: master
-  SCRIPT_SH: script.sh
+  SCRIPT_SH: immortalwrt.script.sh
   CONFIG_SH: ImmortalWrt.sh
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
