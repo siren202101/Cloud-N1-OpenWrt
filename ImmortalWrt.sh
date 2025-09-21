@@ -596,5 +596,4 @@ CONFIG_LIBCURL_NO_SMB="!"
 # CONFIG_PACKAGE_liblua5.4 is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy is not set
 # CONFIG_PACKAGE_luci-app-passwall_Nftables_Transparent_Proxy is not set
-
 EOF
