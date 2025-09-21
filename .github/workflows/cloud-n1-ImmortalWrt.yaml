@@ -15,7 +15,7 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-23.05
   SCRIPT_SH: immortalwrt.script.sh
   CONFIG_SH: ImmortalWrt.sh
   UPLOAD_FIRMWARE: true
