@@ -3956,7 +3956,63 @@ CONFIG_NODEJS_NPM_CACHE_DIR=""
 #
 # PHP8
 #
-# CONFIG_PACKAGE_php8 is not set
+CONFIG_PACKAGE_php8=y
+# CONFIG_PHP8_LIBXML is not set
+CONFIG_PHP8_SYSTEMTZDATA=y
+CONFIG_PACKAGE_php8-cgi=y
+# CONFIG_PACKAGE_php8-cli is not set
+CONFIG_PACKAGE_php8-fastcgi=y
+CONFIG_PACKAGE_php8-fpm=y
+# CONFIG_PACKAGE_php8-mod-bcmath is not set
+# CONFIG_PACKAGE_php8-mod-calendar is not set
+# CONFIG_PACKAGE_php8-mod-ctype is not set
+# CONFIG_PACKAGE_php8-mod-curl is not set
+# CONFIG_PACKAGE_php8-mod-dom is not set
+# CONFIG_PACKAGE_php8-mod-exif is not set
+# CONFIG_PACKAGE_php8-mod-fileinfo is not set
+# CONFIG_PACKAGE_php8-mod-filter is not set
+# CONFIG_PACKAGE_php8-mod-ftp is not set
+# CONFIG_PACKAGE_php8-mod-gd is not set
+# CONFIG_PACKAGE_php8-mod-gettext is not set
+# CONFIG_PACKAGE_php8-mod-gmp is not set
+# CONFIG_PACKAGE_php8-mod-iconv is not set
+# CONFIG_PACKAGE_php8-mod-intl is not set
+# CONFIG_PACKAGE_php8-mod-ldap is not set
+# CONFIG_PACKAGE_php8-mod-mbstring is not set
+# CONFIG_PACKAGE_php8-mod-mysqli is not set
+# CONFIG_PACKAGE_php8-mod-mysqlnd is not set
+# CONFIG_PACKAGE_php8-mod-opcache is not set
+# CONFIG_PACKAGE_php8-mod-openssl is not set
+# CONFIG_PACKAGE_php8-mod-pcntl is not set
+# CONFIG_PACKAGE_php8-mod-pdo is not set
+# CONFIG_PACKAGE_php8-mod-pdo-mysql is not set
+# CONFIG_PACKAGE_php8-mod-pdo-pgsql is not set
+# CONFIG_PACKAGE_php8-mod-pdo-sqlite is not set
+# CONFIG_PACKAGE_php8-mod-pgsql is not set
+# CONFIG_PACKAGE_php8-mod-phar is not set
+# CONFIG_PACKAGE_php8-mod-session is not set
+# CONFIG_PACKAGE_php8-mod-shmop is not set
+# CONFIG_PACKAGE_php8-mod-simplexml is not set
+# CONFIG_PACKAGE_php8-mod-snmp is not set
+# CONFIG_PACKAGE_php8-mod-soap is not set
+# CONFIG_PACKAGE_php8-mod-sockets is not set
+# CONFIG_PACKAGE_php8-mod-sodium is not set
+# CONFIG_PACKAGE_php8-mod-sqlite3 is not set
+# CONFIG_PACKAGE_php8-mod-sysvmsg is not set
+# CONFIG_PACKAGE_php8-mod-sysvsem is not set
+# CONFIG_PACKAGE_php8-mod-sysvshm is not set
+# CONFIG_PACKAGE_php8-mod-tokenizer is not set
+# CONFIG_PACKAGE_php8-mod-xml is not set
+# CONFIG_PACKAGE_php8-mod-xmlreader is not set
+# CONFIG_PACKAGE_php8-mod-xmlwriter is not set
+# CONFIG_PACKAGE_php8-mod-zip is not set
+# CONFIG_PACKAGE_php8-pecl-dio is not set
+# CONFIG_PACKAGE_php8-pecl-http is not set
+# CONFIG_PACKAGE_php8-pecl-imagick is not set
+# CONFIG_PACKAGE_php8-pecl-krb5 is not set
+# CONFIG_PACKAGE_php8-pecl-raphf is not set
+# CONFIG_PACKAGE_php8-pecl-redis is not set
+# CONFIG_PACKAGE_php8-pecl-xdebug is not set
 # end of PHP8
 
 #
@@ -8329,7 +8385,7 @@ CONFIG_PACKAGE_bash=y
 # CONFIG_PACKAGE_zoneinfo-asia is not set
 # CONFIG_PACKAGE_zoneinfo-atlantic is not set
 # CONFIG_PACKAGE_zoneinfo-australia-nz is not set
-# CONFIG_PACKAGE_zoneinfo-core is not set
+CONFIG_PACKAGE_zoneinfo-core=y
 # CONFIG_PACKAGE_zoneinfo-europe is not set
 # CONFIG_PACKAGE_zoneinfo-indian is not set
 # CONFIG_PACKAGE_zoneinfo-pacific is not set
@@ -9069,4 +9125,5 @@ CONFIG_PACKAGE_kmod-natflow=m
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
+
 EOF
