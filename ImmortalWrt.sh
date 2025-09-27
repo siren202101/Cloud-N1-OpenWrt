@@ -5923,11 +5923,11 @@ CONFIG_PACKAGE_zlib=y
 #
 # 1. Collections
 #
-# CONFIG_PACKAGE_luci is not set
+CONFIG_PACKAGE_luci=y
 # CONFIG_PACKAGE_luci-lib-docker is not set
 CONFIG_PACKAGE_luci-light=y
 CONFIG_PACKAGE_luci-nginx=y
-# CONFIG_PACKAGE_luci-ssl is not set
+CONFIG_PACKAGE_luci-ssl=y
 # CONFIG_PACKAGE_luci-ssl-openssl is not set
 # end of 1. Collections
 
