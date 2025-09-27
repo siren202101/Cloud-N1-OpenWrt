@@ -4567,6 +4567,52 @@ CONFIG_PACKAGE_libbz2=m
 #
 # Firewall
 #
+# --- 1. 核心防火墙框架与兼容层 (必需) ---
+# 使用新一代的 firewall4 防火墙框架，它原生于 nftables
+CONFIG_PACKAGE_firewall4=y
+# 提供 iptables 命令的 nftables 兼容层，确保旧脚本和应用能正常工作
+CONFIG_PACKAGE_iptables-nft=y
+
+# --- 2. 核心 Netfilter 内核模块 (必需) ---
+# nftables 核心内核支持
+CONFIG_PACKAGE_kmod-nft-core=y
+# 连接跟踪，所有状态防火墙的基础 (对应 iptables -m state/conntrack)
+CONFIG_PACKAGE_kmod-nft-conntrack=y
+# 网络地址转换(NAT)功能，路由器共享上网和端口转发的基础
+CONFIG_PACKAGE_kmod-nft-nat=y
+# 地址伪装(Masquerade)功能，最常用的出站 NAT 方式 (对应 iptables -j MASQUERADE)
+CONFIG_PACKAGE_kmod-nft-masq=y
+# 硬件流量卸载/分流支持，大幅提升 NAT 性能 (强烈推荐)
+CONFIG_PACKAGE_kmod-nft-offload=y
+
+# --- 3. 常用 iptables 目标(Target)模块 (推荐) ---
+# 日志目标 (对应 iptables -j LOG)
+CONFIG_PACKAGE_kmod-nft-log=y
+# TCP MSS 钳制，解决某些网络环境下 MTU 问题 (对应 iptables -j TCPMSS)
+CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
+CONFIG_PACKAGE_iptables-mod-ipopt=y
+
+# --- 4. 常用 iptables 匹配(Match)模块 (为代理插件强烈推荐) ---
+# 透明代理 (TProxy) 支持，很多代理插件需要
+CONFIG_PACKAGE_iptables-mod-tproxy=y
+# 规则注释支持，方便调试和管理 (对应 iptables -m comment)
+CONFIG_PACKAGE_iptables-mod-comment=y
+# 字符串匹配 (对应 iptables -m string)
+CONFIG_PACKAGE_iptables-mod-string=y
+# 连接标记匹配 (对应 iptables -m connmark)
+CONFIG_PACKAGE_kmod-ipt-connmark=y
+
+# --- 5. IPSet 支持 (代理插件必需) ---
+# ipset 工具，用于高效地管理大量 IP/网段 集合
+CONFIG_PACKAGE_ipset=y
+# ipset 的内核支持 (对应 iptables -m set)
+CONFIG_PACKAGE_kmod-ipt-ipset=y
+
+# --- 6. 其他可能需要的工具 ---
+# 完整的 conntrack 命令行工具，用于调试连接跟踪问题
+CONFIG_PACKAGE_conntrack-tools=y
+# 提供 nft 命令行工具，用于手动调试 nftables 规则
+CONFIG_PACKAGE_nftables-utils=y
 # CONFIG_PACKAGE_libfko is not set
 CONFIG_PACKAGE_libip4tc=m
 CONFIG_PACKAGE_libip6tc=m
