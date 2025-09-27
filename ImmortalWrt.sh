@@ -5880,7 +5880,7 @@ CONFIG_PACKAGE_zlib=y
 CONFIG_PACKAGE_luci=y
 # CONFIG_PACKAGE_luci-lib-docker is not set
 CONFIG_PACKAGE_luci-light=y
-# CONFIG_PACKAGE_luci-nginx is not set
+CONFIG_PACKAGE_luci-nginx=y
 # CONFIG_PACKAGE_luci-ssl is not set
 # CONFIG_PACKAGE_luci-ssl-openssl is not set
 # end of 1. Collections
@@ -7579,9 +7579,9 @@ CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y
 # CONFIG_PACKAGE_trojan-go is not set
 # CONFIG_PACKAGE_tuic-client is not set
 # CONFIG_PACKAGE_tuic-server is not set
-CONFIG_PACKAGE_uhttpd=y
+# CONFIG_PACKAGE_uhttpd is not set
 # CONFIG_PACKAGE_uhttpd-mod-lua is not set
-CONFIG_PACKAGE_uhttpd-mod-ubus=y
+# CONFIG_PACKAGE_uhttpd-mod-ubus is not set
 # CONFIG_PACKAGE_uhttpd-mod-ucode is not set
 # CONFIG_PACKAGE_uwsgi is not set
 # CONFIG_PACKAGE_v2ray-plugin is not set
