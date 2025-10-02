@@ -66,6 +66,7 @@ CONFIG_PACKAGE_libstdcpp=y
 CONFIG_PACKAGE_libuv=y
 CONFIG_PACKAGE_libyaml=y
 CONFIG_PACKAGE_lsblk=y
+CONFIG_PACKAGE_libudev-zero=y
 CONFIG_PACKAGE_luci-app-argon-config=y
 CONFIG_PACKAGE_luci-app-diskman=y
 CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
