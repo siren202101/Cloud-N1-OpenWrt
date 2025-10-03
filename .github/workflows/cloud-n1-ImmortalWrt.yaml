@@ -158,6 +158,14 @@ jobs:
         make defconfig
         make download -j8
         find dl -size -1024c -exec rm -f {} \;
+        
+    - name: Apply Patch
+      run: |
+        # 进入正确的目录
+        cd openwrt  # 你的工作目录
+        
+        # 应用仓库中的补丁文件
+        git apply patch/rtpengine_patch.diff
 
 
     - name: Compile the firmware
