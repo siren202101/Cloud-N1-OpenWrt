@@ -163,7 +163,7 @@ jobs:
     - name: Compile the firmware
       run: |
         cd openwrt
-        git apply ../patch/rtpengine_patch.diff
+        patch -p1 < ../patch/rtpengine_patch.diff
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
         echo "======================="
