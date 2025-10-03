@@ -1,0 +1,16 @@
+--- build_dir/target-aarch64_generic_musl/rtpengine-no-transcode/rtpengine-mr11.5.1.18/kernel-module/xt_RTPENGINE.c
++++ build_dir/target-aarch64_generic_musl/rtpengine-no-transcode/rtpengine-mr11.5.1.18/kernel-module/xt_RTPENGINE.c
+@@ -20,6 +20,7 @@
+ #include <net/ip.h>
+ #include <net/route.h> // 确保包含此头文件
+
+-// 旧的代码
+-// rt = ip_route_output(net, dst->u.ipv4, src->u.ipv4, tos, 0);
++// 新的代码
++struct flowi4 fl4 = {
++    .daddr = dst->u.ipv4,
++    .saddr = src->u.ipv4,
++    .flowi4_tos = tos,
++    // 如果需要的话，设置其他字段：如 fl4.flowi4_oif, fl4.flowi4_proto
++};
++rt = ip_route_output_key(net, &fl4);
