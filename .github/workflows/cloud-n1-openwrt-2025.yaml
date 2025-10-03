@@ -8,8 +8,7 @@ on:
       - main
     paths:
       - 'README.md'
-      - 'script.sh'
-      - 'config.sh'
+      - 'lede.config.sh'
   schedule:
     - cron: 0 5 * * 0
 
