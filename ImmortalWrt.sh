@@ -66,6 +66,7 @@ CONFIG_PACKAGE_luci-app-ddns=y
 CONFIG_PACKAGE_ddns-scripts-cloudflare=y
 CONFIG_DEFAULT_default-settings=y
 CONFIG_PACKAGE_default-settings=y
+CONFIG_PACKAGE_luci-app-vsftpd=y
 
 
 
