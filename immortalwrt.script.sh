@@ -19,9 +19,9 @@ sed -i "s/bootstrap/$default_theme/g" feeds/luci/modules/luci-base/root/etc/conf
 #sed -i '$a src-git kenzok8_openwrt_packages https://github.com/kenzok8/openwrt-packages.git' feeds.conf.default
 sed -i '$a src-git kenzok8_small_package https://github.com/kenzok8/small-package.git' feeds.conf.default
 sed -i '1i src-git OpenClash https://github.com/vernesong/OpenClash.git' feeds.conf.default
-sed -i '1i src-git openwrt_passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' feeds.conf.default
-sed -i '1i src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;main' feeds.conf.default
-sed -i '1i src-git kenzok8_screen https://github.com/siren202101/kenzok8-screen.git' feeds.conf.default
+#sed -i '1i src-git openwrt_passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' feeds.conf.default
+#sed -i '1i src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;main' feeds.conf.default
+sed -i '1i src-git kenzok8_smartdns https://github.com/siren202101/kenzok8-smartdns.git' feeds.conf.default
 
 
 
