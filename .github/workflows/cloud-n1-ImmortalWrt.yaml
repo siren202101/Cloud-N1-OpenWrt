@@ -159,11 +159,14 @@ jobs:
         make download -j8
         find dl -size -1024c -exec rm -f {} \;
 
+    - name: 检查并应用 RTPengine 补丁
+      run: |
+        chmod +x patch/check_and_patch_rtpengine.sh
+        ./patch/apply_patch.sh
 
     - name: Compile the firmware
       run: |
         cd openwrt
-        patch -p1 < ../patch/rtpengine_patch.patch
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
         echo "======================="
