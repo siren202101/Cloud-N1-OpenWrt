@@ -67,7 +67,28 @@ CONFIG_PACKAGE_ddns-scripts-cloudflare=y
 CONFIG_DEFAULT_default-settings=y
 CONFIG_PACKAGE_default-settings=y
 CONFIG_PACKAGE_luci-app-vsftpd=y
+CONFIG_PACKAGE_ppp=y
+CONFIG_PACKAGE_pppoe-relay=y
+CONFIG_PACKAGE_pppoe-dialer=y
 
+
+CONFIG_PACKAGE_luci-i18n-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-filetransfer-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-argon-config-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-samba4-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-sqm-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-unblockneteasemusic-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-amlogic-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-vsftpd-zh-cn=y
 
 
 CONFIG_PACKAGE_python-pip-conf=y
@@ -99,6 +120,8 @@ CONFIG_PACKAGE_python3-urllib=y
 CONFIG_PACKAGE_python3-uuid=y
 CONFIG_PACKAGE_python3-xml=y
 CONFIG_PACKAGE_uhttpd=y
+
+
 
 
 # themes
