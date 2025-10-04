@@ -176,6 +176,13 @@ jobs:
         rm -rf ./build_dir
         echo "status=success" >> $GITHUB_OUTPUT
 
+    - name: Rename firmware files
+      run: |
+        cd openwrt/bin/targets/*/*
+        # Rename all immortalwrt*.tar.gz files to openwrt*.tar.gz
+        mv immortalwrt*.tar.gz openwrt*.tar.gz
+        echo "Firmware files renamed to openwrt*.tar.gz"
+
     - name: Package Armvirt as OpenWrt
       uses: ophub/flippy-openwrt-actions@main
       env:
