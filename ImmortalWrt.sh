@@ -40,6 +40,16 @@ CONFIG_PACKAGE_kmod-thunderx-net=n
 CONFIG_PACKAGE_kmod-usb2=y
 CONFIG_PACKAGE_kmod-vmxnet3=n
 CONFIG_PACKAGE_kmod-wdt-sp805=n
+CONFIG_DEFAULT_ppp=y
+CONFIG_PACKAGE_pppoe=y
+CONFIG_DEFAULT_ppp-mod-pppoe=y
+CONFIG_PACKAGE_kmod-ppp=y
+CONFIG_PACKAGE_kmod-mppe=y
+CONFIG_PACKAGE_kmod-pppoe=y
+CONFIG_PACKAGE_kmod-pppox=y
+CONFIG_PACKAGE_luci-proto-ppp=y
+CONFIG_PACKAGE_ppp=y
+CONFIG_PACKAGE_ppp-mod-pppoe=y
 
 # luci
 								   
@@ -68,15 +78,7 @@ CONFIG_DEFAULT_default-settings=y
 CONFIG_PACKAGE_default-settings=y
 CONFIG_PACKAGE_openssh-sftp-server=y
 CONFIG_PACKAGE_luci-app-vsftpd=y
-CONFIG_DEFAULT_ppp=y
-CONFIG_DEFAULT_ppp-mod-pppoe=y
-CONFIG_PACKAGE_kmod-ppp=y
-CONFIG_PACKAGE_kmod-mppe=y
-CONFIG_PACKAGE_kmod-pppoe=y
-CONFIG_PACKAGE_kmod-pppox=y
-CONFIG_PACKAGE_luci-proto-ppp=y
-CONFIG_PACKAGE_ppp=y
-CONFIG_PACKAGE_ppp-mod-pppoe=y
+
 
 
 
