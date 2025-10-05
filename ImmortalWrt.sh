@@ -66,10 +66,18 @@ CONFIG_PACKAGE_luci-app-ddns=y
 CONFIG_PACKAGE_ddns-scripts-cloudflare=y
 CONFIG_DEFAULT_default-settings=y
 CONFIG_PACKAGE_default-settings=y
+CONFIG_PACKAGE_openssh-sftp-server=y
 CONFIG_PACKAGE_luci-app-vsftpd=y
+CONFIG_DEFAULT_ppp=y
+CONFIG_DEFAULT_ppp-mod-pppoe=y
+CONFIG_PACKAGE_kmod-ppp=y
+CONFIG_PACKAGE_kmod-mppe=y
+CONFIG_PACKAGE_kmod-pppoe=y
+CONFIG_PACKAGE_kmod-pppox=y
+CONFIG_PACKAGE_luci-proto-ppp=y
 CONFIG_PACKAGE_ppp=y
-CONFIG_PACKAGE_pppoe-relay=y
-CONFIG_PACKAGE_pppoe-dialer=y
+CONFIG_PACKAGE_ppp-mod-pppoe=y
+
 
 
 CONFIG_PACKAGE_luci-i18n-zh-cn=y
@@ -89,6 +97,7 @@ CONFIG_PACKAGE_luci-i18n-unblockneteasemusic-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-amlogic-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-vsftpd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
 
 
 CONFIG_PACKAGE_python-pip-conf=y
@@ -163,4 +172,33 @@ CONFIG_PACKAGE_kmod-cfg80211=n
 CONFIG_PACKAGE_kmod-mac80211=n
 CONFIG_PACKAGE_wpa-cli=n
 CONFIG_PACKAGE_wpad-basic=n
+###添加依赖包###
+CONFIG_PACKAGE_perl-http-date=y
+CONFIG_PACKAGE_perlbase-file=y
+CONFIG_PACKAGE_perlbase-getopt=y
+CONFIG_PACKAGE_perlbase-time=y
+CONFIG_PACKAGE_perlbase-unicode=y
+CONFIG_PACKAGE_perlbase-utf8=y
+CONFIG_PACKAGE_fdisk=y
+CONFIG_PACKAGE_lsblk=y
+CONFIG_PACKAGE_parted=y
+CONFIG_PACKAGE_attr=y
+CONFIG_PACKAGE_btrfs-progs=y
+CONFIG_PACKAGE_chattr=y
+CONFIG_PACKAGE_dosfstools=y
+CONFIG_PACKAGE_f2fs-tools=y
+CONFIG_PACKAGE_f2fsck=y
+CONFIG_PACKAGE_lsattr=y
+CONFIG_PACKAGE_mkf2fs=y
+CONFIG_PACKAGE_xfs-fsck=y
+CONFIG_PACKAGE_xfs-mkfs=y
+CONFIG_PACKAGE_bsdtar=y
+CONFIG_PACKAGE_pigz=y
+CONFIG_PACKAGE_bash=y
+CONFIG_PACKAGE_gawk=y
+CONFIG_PACKAGE_getopt=y
+CONFIG_PACKAGE_losetup=y
+CONFIG_PACKAGE_tar=y
+CONFIG_PACKAGE_uuidgen=y
+CONFIG_PACKAGE_acpid=y
 EOF
