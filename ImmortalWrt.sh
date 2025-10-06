@@ -260,7 +260,7 @@ CONFIG_PACKAGE_luci-theme-bootstrap=y
 CONFIG_LUCI_LANG_zh_Hans=y
 
 # 网络基础
-CONFIG_PACKAGE_dnsmasq=y
+#CONFIG_PACKAGE_dnsmasq=y
 CONFIG_PACKAGE_firewall4=y
 CONFIG_PACKAGE_nftables=y
 CONFIG_PACKAGE_odhcp6c=y
