@@ -348,7 +348,7 @@ CONFIG_PACKAGE_coreutils-timeout=y
 # CONFIG_PACKAGE_wpad-basic-wolfssl is not set
 # CONFIG_PACKAGE_hostapd-common is not set
 
-CONFIG_PACKAGE_msd_lite=y
-CONFIG_PACKAGE_luci-app-msd_lite=y 
+#CONFIG_PACKAGE_msd_lite=y
+#CONFIG_PACKAGE_luci-app-msd_lite=y 
 
 EOF
