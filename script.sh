@@ -29,6 +29,10 @@ sed -i '1i src-git kenzok8_screen https://github.com/siren202101/kenzok8-screen.
 sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/luci2/bin/config_generate
 
+###修改luci分支###
+sed -i 's/src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-23.05/#src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-23.05/' feeds.conf.default
+sed -i 's/#src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-24.10/src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-24.10/' feeds.conf.default
+
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git  package-temp/luci-app-amlogic
 mv -f package-temp/luci-app-amlogic/luci-app-amlogic package/lean/
