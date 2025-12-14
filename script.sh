@@ -13,7 +13,7 @@ rm -rf theme-temp/luci-theme-opentomcat/README.md
 mv -f theme-temp/luci-theme-opentomcat package/lean/
 rm -rf theme-temp
 default_theme='opentomcat'
-sed -i "s/bootstrap/$default_theme/g" feeds/luci/modules/luci-base/root/etc/config/luci
+#sed -i "s/bootstrap/$default_theme/g" feeds/luci/modules/luci-base/root/etc/config/luci
 ### 添加第三方订阅源
 #sed -i '$a src-git kiddin9_openwrt_packages https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 #sed -i '$a src-git kenzok8_openwrt_packages https://github.com/kenzok8/openwrt-packages.git' feeds.conf.default
@@ -30,7 +30,7 @@ sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/files/bin/config_genera
 sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/luci2/bin/config_generate
 
 ###修改luci分支###
-sed -i 's/src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-23.05/#src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-23.05/' feeds.conf.default
+#sed -i 's/src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-23.05/#src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-23.05/' feeds.conf.default
 sed -i 's/#src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-24.10/src-git luci https:\/\/github.com\/coolsnowwolf\/luci.git;openwrt-24.10/' feeds.conf.default
 
 # Add luci-app-amlogic
