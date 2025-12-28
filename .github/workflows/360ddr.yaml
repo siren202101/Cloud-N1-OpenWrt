@@ -1,4 +1,4 @@
-name: 360T7 固件 DDR 提取
+name: 360T7 固件 DDR 提取 (修复版)
 
 on:
   workflow_dispatch:
@@ -12,30 +12,47 @@ jobs:
   extract:
     runs-on: ubuntu-latest
     steps:
+      - name: 检出代码
+        uses: actions/checkout@v4  # 升级到 v4
+
       - name: 下载固件
         run: |
-          # 使用 -L 处理重定向，-o 保存文件
-          curl -L "${{ github.event.inputs.firmware_url }}" -o firmware.bin
+          # 使用 -L 跟踪重定向，--retry 增加稳定性
+          echo "正在从直链下载固件..."
+          curl -L --retry 3 "${{ github.event.inputs.firmware_url }}" -o firmware.bin
           
+          # 检查文件大小，确保下载的不是空的或 HTML
+          FILESIZE=$(stat -c%s "firmware.bin")
+          echo "下载完成，文件大小: $FILESIZE 字节"
+          if [ $FILESIZE -lt 100000 ]; then
+            echo "错误: 下载的文件太小，可能不是有效的固件或下载链接失效。"
+            exit 1
+          fi
+
       - name: 识别与提取
         run: |
-          # 360T7 的 Preloader 位于头部，提取前 256KB 足够
+          # 360T7 的 Preloader 位于头部，提取前 256KB
           dd if=firmware.bin of=preloader_raw.bin bs=1k count=256
           
-          # 智能识别 DDR 类型并重命名
+          # 检查内存类型标识
           if grep -q "DDR4" preloader_raw.bin; then
             echo "SUCCESS: 识别为 DDR4 固件"
             mv preloader_raw.bin 360T7_DDR4_Preloader.bin
+            echo "RESULT_NAME=360T7_DDR4_Preloader.bin" >> $GITHUB_ENV
           elif grep -q "DDR3" preloader_raw.bin; then
             echo "SUCCESS: 识别为 DDR3 固件"
             mv preloader_raw.bin 360T7_DDR3_Preloader.bin
+            echo "RESULT_NAME=360T7_DDR3_Preloader.bin" >> $GITHUB_ENV
           else
-            echo "WARNING: 未发现标准 DDR 标识，请检查固件是否完整"
+            echo "WARNING: 未发现标准 DDR 标识，作为未知版本导出"
             mv preloader_raw.bin 360T7_Unknown_Preloader.bin
+            echo "RESULT_NAME=360T7_Unknown_Preloader.bin" >> $GITHUB_ENV
           fi
 
-      - name: 上传结果到 GitHub
-        uses: actions/upload-artifact@v3
+      - name: 上传提取结果
+        uses: actions/upload-artifact@v4  # 核心修复：升级到 v4 版本
         with:
-          name: 360T7-Extracted-Preloader
-          path: 360T7_*.bin
+          name: 360T7-Extracted-Result
+          path: ${{ env.RESULT_NAME }}
+          if-no-files-found: error
+
