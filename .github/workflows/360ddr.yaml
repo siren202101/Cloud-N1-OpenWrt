@@ -1,0 +1,41 @@
+name: 360T7 固件 DDR 提取
+
+on:
+  workflow_dispatch:
+    inputs:
+      firmware_url:
+        description: '请输入固件直链 (需能直接通过 curl 下载)'
+        required: true
+        default: ''
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 下载固件
+        run: |
+          # 使用 -L 处理重定向，-o 保存文件
+          curl -L "${{ github.event.inputs.firmware_url }}" -o firmware.bin
+          
+      - name: 识别与提取
+        run: |
+          # 360T7 的 Preloader 位于头部，提取前 256KB 足够
+          dd if=firmware.bin of=preloader_raw.bin bs=1k count=256
+          
+          # 智能识别 DDR 类型并重命名
+          if grep -q "DDR4" preloader_raw.bin; then
+            echo "SUCCESS: 识别为 DDR4 固件"
+            mv preloader_raw.bin 360T7_DDR4_Preloader.bin
+          elif grep -q "DDR3" preloader_raw.bin; then
+            echo "SUCCESS: 识别为 DDR3 固件"
+            mv preloader_raw.bin 360T7_DDR3_Preloader.bin
+          else
+            echo "WARNING: 未发现标准 DDR 标识，请检查固件是否完整"
+            mv preloader_raw.bin 360T7_Unknown_Preloader.bin
+          fi
+
+      - name: 上传结果到 GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: 360T7-Extracted-Preloader
+          path: 360T7_*.bin
