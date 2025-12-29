@@ -1,4 +1,4 @@
-name: Build Hanwckf 360T7 U-Boot
+name: Build Hanwckf 360T7 U-Boot (Fixed)
 
 on:
   workflow_dispatch:
@@ -22,30 +22,24 @@ jobs:
           sudo apt update
           sudo apt install -y gcc-aarch64-linux-gnu build-essential flex bison libssl-dev device-tree-compiler qemu-user-static
 
-      - name: 编译 360T7 (DDR4 版本)
+      - name: 编译 360T7
         run: |
-          # 360T7 绝大多数为 DDR4
+          # 执行编译
           SOC=mt7981 BOARD=360t7 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh
-          mkdir -p output/ddr4
-          cp output/mt7981_360t7-fip.bin output/ddr4/fip-360t7-ddr4.bin
-          cp output/mt7981_360t7-bl2.bin output/ddr4/bl2-360t7-ddr4.bin
-
-      - name: 编译 360T7 (DDR3 版本)
-        run: |
-          # 清理之前的缓存
-          make clean
-          # 编译 DDR3 版本
-          # 注意：Hanwckf 源码中 DDR3 通常通过修改配置或 BOARD 识别，
-          # 默认 360t7 为 DDR4，如需 DDR3，脚本会自动识别源码中的补丁
-          SOC=mt7981 BOARD=360t7-ddr3 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh || \
-          SOC=mt7981 BOARD=360t7 DDR3=1 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh
           
-          mkdir -p output/ddr3
-          cp output/mt7981_360t7*-fip.bin output/ddr3/fip-360t7-ddr3.bin
-          cp output/mt7981_360t7*-bl2.bin output/ddr3/bl2-360t7-ddr3.bin
+          # 创建输出目录
+          mkdir -p final_output
+          
+          # 核心修复：使用通配符匹配所有生成的 bin 文件
+          # Hanwckf 的脚本会生成类似 mt7981_360t7-fip-fixed-parts.bin 的文件
+          cp output/mt7981_360t7-bl2.bin final_output/bl2-360t7.bin || cp output/mt7981_360t7-bl2* final_output/bl2-360t7.bin
+          cp output/mt7981_360t7-fip.bin final_output/fip-360t7.bin || cp output/mt7981_360t7-fip*.bin final_output/fip-360t7.bin
+          
+          echo "编译完成，已整理产物。"
 
       - name: 上传固件产物
         uses: actions/upload-artifact@v4
         with:
-          name: 360T7-Hanwckf-Uboot-${{ github.event.inputs.multi_layout == '1' && 'MultiLayout' || 'StockLayout' }}
-          path: output/
+          name: 360T7-Uboot-Result
+          path: final_output/
+
