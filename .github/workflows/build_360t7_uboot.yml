@@ -1,0 +1,51 @@
+name: Build Hanwckf 360T7 U-Boot
+
+on:
+  workflow_dispatch:
+    inputs:
+      multi_layout:
+        description: '是否开启多分区布局 (0:原厂布局, 1:大分区布局)'
+        required: true
+        default: '0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出 Hanwckf 源码
+        uses: actions/checkout@v4
+        with:
+          repository: 'hanwckf/bl-mt798x'
+
+      - name: 安装编译依赖
+        run: |
+          sudo apt update
+          sudo apt install -y gcc-aarch64-linux-gnu build-essential flex bison libssl-dev device-tree-compiler qemu-user-static
+
+      - name: 编译 360T7 (DDR4 版本)
+        run: |
+          # 360T7 绝大多数为 DDR4
+          SOC=mt7981 BOARD=360t7 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh
+          mkdir -p output/ddr4
+          cp output/mt7981_360t7-fip.bin output/ddr4/fip-360t7-ddr4.bin
+          cp output/mt7981_360t7-bl2.bin output/ddr4/bl2-360t7-ddr4.bin
+
+      - name: 编译 360T7 (DDR3 版本)
+        run: |
+          # 清理之前的缓存
+          make clean
+          # 编译 DDR3 版本
+          # 注意：Hanwckf 源码中 DDR3 通常通过修改配置或 BOARD 识别，
+          # 默认 360t7 为 DDR4，如需 DDR3，脚本会自动识别源码中的补丁
+          SOC=mt7981 BOARD=360t7-ddr3 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh || \
+          SOC=mt7981 BOARD=360t7 DDR3=1 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh
+          
+          mkdir -p output/ddr3
+          cp output/mt7981_360t7*-fip.bin output/ddr3/fip-360t7-ddr3.bin
+          cp output/mt7981_360t7*-bl2.bin output/ddr3/bl2-360t7-ddr3.bin
+
+      - name: 上传固件产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: 360T7-Hanwckf-Uboot-${{ github.event.inputs.multi_layout == '1' && 'MultiLayout' || 'StockLayout' }}
+          path: output/
