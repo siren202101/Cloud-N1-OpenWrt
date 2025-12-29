@@ -1,4 +1,4 @@
-name: Build Hanwckf 360T7 U-Boot (108M Fixed)
+name: Build Hanwckf 360T7 U-Boot (108M Layout Fix)
 
 on:
   workflow_dispatch:
@@ -22,37 +22,36 @@ jobs:
           sudo apt update
           sudo apt install -y gcc-aarch64-linux-gnu build-essential flex bison libssl-dev device-tree-compiler qemu-user-static python3
 
+      - name: 修复 360T7 ATF 配置缺失问题
+        run: |
+          # 进入 ATF 配置目录
+          cd atf-2024* /configs || cd atf/configs || true
+          # 如果没有 108m 的 ATF 配置，就用原版配置创建一个链接，骗过脚本
+          if [ ! -f mt7981_360t7-108m_defconfig ]; then
+             cp mt7981_360t7_defconfig mt7981_360t7-108m_defconfig
+             echo "已为 ATF 补全 108m 配置文件"
+          fi
+
       - name: 编译 360T7
         run: |
-          # 设置基础变量
-          SOC=mt7981
-          
-          # 根据 Hanwckf 源码，大分区名称为 360t7-108m
+          # 根据输入决定 BOARD 名称
           if [ "${{ github.event.inputs.multi_layout }}" == "1" ]; then
-             echo "正在编译 108M 大分区布局..."
-             BOARD=360t7-108m
+             TARGET_BOARD=360t7-108m
           else
-             echo "正在编译 原厂 布局..."
-             BOARD=360t7
+             TARGET_BOARD=360t7
           fi
           
           # 执行编译
-          SOC=$SOC BOARD=$BOARD ./build.sh
+          SOC=mt7981 BOARD=$TARGET_BOARD ./build.sh
           
-          # 提取产物
+          # 收集产物
           mkdir -p final_output
-          # 尝试拷贝精确匹配的文件，如果失败则拷贝 output 目录下所有 bin
-          cp output/mt7981_${BOARD}-bl2.bin final_output/bl2-360t7.bin || true
-          cp output/mt7981_${BOARD}-fip.bin final_output/fip-360t7.bin || true
-          
-          # 如果上述拷贝没成功（文件名不规则），则把整个 output 搬过来防止落空
-          if [ ! -f final_output/fip-360t7.bin ]; then
-             cp output/*.bin final_output/
-          fi
+          cp output/mt7981_${TARGET_BOARD}-bl2.bin final_output/bl2-360t7.bin || cp output/*.bin final_output/
+          cp output/mt7981_${TARGET_BOARD}-fip.bin final_output/fip-360t7.bin || true
 
       - name: 上传 108M 固件产物
         uses: actions/upload-artifact@v4
         with:
-          name: 360T7-Uboot-${{ github.event.inputs.multi_layout == '1' && '108M-Layout' || 'Stock-Layout' }}
+          name: 360T7-Uboot-Final
           path: final_output/
 
