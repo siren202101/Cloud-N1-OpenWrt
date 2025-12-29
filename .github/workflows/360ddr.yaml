@@ -1,4 +1,4 @@
-name: 360T7 固件全量分区提取
+name: 360T7 固件全量分区提取 (修复版)
 
 on:
   workflow_dispatch:
@@ -17,41 +17,47 @@ jobs:
       - name: 安装依赖工具
         run: |
           sudo apt-get update
-          sudo apt-get install -y binwalk dd u-boot-tools
+          # 注意：dd 属于 coreutils，已经预装。这里只安装 binwalk 等辅助工具
+          sudo apt-get install -y binwalk u-boot-tools
 
       - name: 下载固件
         run: |
           curl -L --retry 3 "${{ github.event.inputs.firmware_url }}" -o full_dump.bin
           
-      - name: 自动分析与全量切割
+      - name: 提取 Preloader (DDR3/4)
         run: |
           mkdir -p extracted_parts
+          # 提取前 256KB
+          dd if=full_dump.bin of=extracted_parts/preloader.bin bs=1k count=256
           
-          echo "=== 开始分析固件布局 ==="
-          binwalk full_dump.bin
-          
-          # 1. 提取 Preloader (包含 DDR 配置)
-          # 偏移 0x0, 大小 256KB
-          dd if=full_dump.bin of=extracted_parts/01_Preloader.bin bs=1k count=256
-          
-          # 2. 提取 Factory (极其重要：含 MAC 地址和无线校准/无线基带)
-          # 360T7 常见的 Factory 偏移在 0x40000，大小 256KB
-          dd if=full_dump.bin of=extracted_parts/02_Factory.bin bs=1k skip=256 count=256
-          
-          # 3. 提取 FIP (U-Boot 所在分区)
-          # 常见偏移在 0x100000 (1MB 处)，大小约 2MB
-          dd if=full_dump.bin of=extracted_parts/03_FIP_Uboot.bin bs=1k skip=1024 count=2048
-          
-          # 4. 提取 Kernel (Linux 内核)
-          # 使用 binwalk 自动定位并提取所有识别出的 LZMA/U-Boot 镜像
-          binwalk -e --run-as=root full_dump.bin -C extracted_parts/bins
-          
-          # 5. 扫描备份分区信息
-          strings full_dump.bin | grep -E "board|mac|model" > extracted_parts/device_info.txt || true
+          # 自动重命名识别类型
+          if grep -q "DDR4" extracted_parts/preloader.bin; then
+            mv extracted_parts/preloader.bin extracted_parts/360T7_Preloader_DDR4.bin
+          elif grep -q "DDR3" extracted_parts/preloader.bin; then
+            mv extracted_parts/preloader.bin extracted_parts/360T7_Preloader_DDR3.bin
+          fi
 
-      - name: 上传所有提取分区
+      - name: 提取 Factory (无线校准数据)
+        run: |
+          # 360T7 原厂 Factory 分区通常在 0x40000 (256KB 偏移处)
+          # 大小通常为 256KB
+          dd if=full_dump.bin of=extracted_parts/factory.bin bs=1k skip=256 count=256
+
+      - name: 提取 FIP (U-Boot)
+        run: |
+          # FIP 分区通常包含 ATF 和 U-Boot，常见偏移 0x100000 (1MB)
+          # 我们提取 2MB 以确保覆盖完整 FIP 区域
+          dd if=full_dump.bin of=extracted_parts/fip_uboot.bin bs=1k skip=1024 count=2048
+
+      - name: 深度分析与文件系统提取
+        run: |
+          # 使用 binwalk 自动扫描所有已知的文件结构（内核、Rootfs 等）
+          # -e 为自动提取，-M 为递归扫描
+          binwalk -e --run-as=root full_dump.bin -C extracted_parts/filesystem_contents || true
+
+      - name: 上传提取结果
         uses: actions/upload-artifact@v4
         with:
-          name: 360T7-Full-Extracted-Parts
+          name: 360T7-Full-Backup-Extracted
           path: extracted_parts/
 
