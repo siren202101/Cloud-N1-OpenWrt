@@ -1,12 +1,12 @@
-name: Build Hanwckf 360T7 U-Boot (Fixed)
+name: Build Hanwckf 360T7 U-Boot (108M Fixed)
 
 on:
   workflow_dispatch:
     inputs:
       multi_layout:
-        description: '是否开启多分区布局 (0:原厂布局, 1:大分区布局)'
+        description: '布局选择 (0:原厂布局, 1:108M大分区布局)'
         required: true
-        default: '0'
+        default: '1'
 
 jobs:
   build:
@@ -20,26 +20,39 @@ jobs:
       - name: 安装编译依赖
         run: |
           sudo apt update
-          sudo apt install -y gcc-aarch64-linux-gnu build-essential flex bison libssl-dev device-tree-compiler qemu-user-static
+          sudo apt install -y gcc-aarch64-linux-gnu build-essential flex bison libssl-dev device-tree-compiler qemu-user-static python3
 
       - name: 编译 360T7
         run: |
+          # 设置基础变量
+          SOC=mt7981
+          
+          # 根据 Hanwckf 源码，大分区名称为 360t7-108m
+          if [ "${{ github.event.inputs.multi_layout }}" == "1" ]; then
+             echo "正在编译 108M 大分区布局..."
+             BOARD=360t7-108m
+          else
+             echo "正在编译 原厂 布局..."
+             BOARD=360t7
+          fi
+          
           # 执行编译
-          SOC=mt7981 BOARD=360t7 MULTI_LAYOUT=${{ github.event.inputs.multi_layout }} ./build.sh
+          SOC=$SOC BOARD=$BOARD ./build.sh
           
-          # 创建输出目录
+          # 提取产物
           mkdir -p final_output
+          # 尝试拷贝精确匹配的文件，如果失败则拷贝 output 目录下所有 bin
+          cp output/mt7981_${BOARD}-bl2.bin final_output/bl2-360t7.bin || true
+          cp output/mt7981_${BOARD}-fip.bin final_output/fip-360t7.bin || true
           
-          # 核心修复：使用通配符匹配所有生成的 bin 文件
-          # Hanwckf 的脚本会生成类似 mt7981_360t7-fip-fixed-parts.bin 的文件
-          cp output/mt7981_360t7-bl2.bin final_output/bl2-360t7.bin || cp output/mt7981_360t7-bl2* final_output/bl2-360t7.bin
-          cp output/mt7981_360t7-fip.bin final_output/fip-360t7.bin || cp output/mt7981_360t7-fip*.bin final_output/fip-360t7.bin
-          
-          echo "编译完成，已整理产物。"
+          # 如果上述拷贝没成功（文件名不规则），则把整个 output 搬过来防止落空
+          if [ ! -f final_output/fip-360t7.bin ]; then
+             cp output/*.bin final_output/
+          fi
 
-      - name: 上传固件产物
+      - name: 上传 108M 固件产物
         uses: actions/upload-artifact@v4
         with:
-          name: 360T7-Uboot-Result
+          name: 360T7-Uboot-${{ github.event.inputs.multi_layout == '1' && '108M-Layout' || 'Stock-Layout' }}
           path: final_output/
 
