@@ -181,5 +181,14 @@ CONFIG_boost-variant-release=y
 # CONFIG_PACKAGE_liblua5.3 is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client is not set
+# AdGuard Home 插件本体
+CONFIG_PACKAGE_luci-app-adguardhome=y
 
+# 语言包（确保界面是中文）
+CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+
+# 核心依赖（处理 HTTPS 过滤和下载核心所必需）
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_wget-ssl=y
 EOF
