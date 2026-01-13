@@ -193,4 +193,5 @@ CONFIG_boost-variant-release=y
 #CONFIG_PACKAGE_wget-ssl=y
 #应用过滤
 CONFIG_PACKAGE_luci-app-oaf=y
+CONFIG_PACKAGE_kmod-oaf=y
 EOF
