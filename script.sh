@@ -26,17 +26,15 @@ sed -i '1i src-git kenzok8_screen https://github.com/siren202101/kenzok8-screen.
 
 
 #修改kmod
-echo ">>> Patch kmod: disable manpages"
-
+echo ">>> Patch kmod: ensure --with-zlib and --disable-manpages"
 KMOD_MK="feeds/packages/utils/kmod/Makefile"
-
 if [ -f "$KMOD_MK" ]; then
+    # 确保 --with-zlib 存在
+    if ! grep -q -- "--with-zlib" "$KMOD_MK"; then
+        echo "CONFIGURE_ARGS += --with-zlib" >> "$KMOD_MK"
+    fi
+    # 确保 --disable-manpages 存在
     if ! grep -q -- "--disable-manpages" "$KMOD_MK"; then
         sed -i '/CONFIGURE_ARGS[[:space:]]*+=/a CONFIGURE_ARGS += --disable-manpages' "$KMOD_MK"
-        echo ">>> kmod patched successfully"
-    else
-        echo ">>> kmod already patched, skip"
     fi
-else
-    echo "!!! kmod Makefile not found"
 fi
