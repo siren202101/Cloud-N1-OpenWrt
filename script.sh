@@ -17,7 +17,7 @@ sed -i 's/192.168.1.1/192.168.88.8/g' package/base-files/files/bin/config_genera
 
 # 使用 23.05
 
-sed -i 's/luci.git;openwrt-25.12/luci.git;openwrt-23.05/g' feeds.conf.default
+#sed -i 's/luci.git;openwrt-25.12/luci.git;openwrt-23.05/g' feeds.conf.default
 
 ### 添加第三方订阅源
 #sed -i '$a src-git kiddin9_openwrt_packages https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
